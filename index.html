@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Narin & Göktuğ</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Great+Vibes&display=swap');
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  height:100vh;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  overflow:hidden;
+  font-family:'Playfair Display', serif;
+  color:#fff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* YILDIZLAR */
+.stars{
+  width:1px;
+  height:1px;
+  background:transparent;
+  box-shadow:
+    200px 300px white, 400px 150px white, 600px 700px white,
+    800px 500px white, 1000px 200px white, 1200px 600px white,
+    1400px 100px white, 1600px 800px white;
+  animation: animStar 50s linear infinite;
+}
+
+@keyframes animStar{
+  from{transform:translateY(0);}
+  to{transform:translateY(-2000px);}
+}
+
+/* KART */
+.card{
+  position:relative;
+  z-index:2;
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(10px);
+  border-radius:20px;
+  padding:40px 30px;
+  text-align:center;
+  width:90%;
+  max-width:420px;
+  box-shadow:0 0 40px rgba(255,192,203,0.2);
+}
+
+.names{
+  font-family:'Great Vibes', cursive;
+  font-size:48px;
+  margin-bottom:10px;
+  color:#ffd1dc;
+}
+
+.date{
+  font-size:15px;
+  opacity:0.8;
+  margin-bottom:25px;
+}
+
+.heart{
+  font-size:32px;
+  animation:pulse 1.5s infinite;
+  margin-bottom:20px;
+}
+
+@keyframes pulse{
+  0%{transform:scale(1);}
+  50%{transform:scale(1.2);}
+  100%{transform:scale(1);}
+}
+
+.message{
+  font-size:16px;
+  line-height:1.6;
+  opacity:0.95;
+}
+
+/* ŞİFRE */
+.lock{
+  position:absolute;
+  inset:0;
+  background:#090a0f;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  z-index:5;
+}
+
+.lock input{
+  padding:12px;
+  border:none;
+  border-radius:10px;
+  width:200px;
+  margin-top:15px;
+  text-align:center;
+}
+
+.lock button{
+  margin-top:15px;
+  padding:10px 20px;
+  border:none;
+  border-radius:20px;
+  background:#ffd1dc;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<div class="lock" id="lock">
+  <div>Bu site sadece Narin için 🤍</div>
+  <input type="password" id="pass" placeholder="Şifre">
+  <button onclick="unlock()">Aç</button>
+</div>
+
+<div class="card">
+  <div class="names">Narin & Göktuğ</div>
+  <div class="date">19.12.2025</div>
+  <div class="heart">❤️</div>
+  <div class="message">
+    Sen benim gecemdeki yıldızsın.  
+    Ne zaman kararsam, gökyüzüne bakmam yetiyor.  
+    Çünkü orada hep sen varsın.
+  </div>
+</div>
+
+<script>
+function unlock(){
+  const p=document.getElementById("pass").value;
+  if(p==="narinim"){
+    document.getElementById("lock").style.display="none";
+  }else{
+    alert("Şifre yanlış 🤍");
+  }
+}
+</script>
+
+</body>
+</html>
